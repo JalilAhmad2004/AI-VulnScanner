@@ -1,0 +1,136 @@
+/* results.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: #00ff00;
+    font-size: 20px;
+}
+
+.matrix-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#matrixCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+.terminal-overlay {
+    position: relative;
+    z-index: 10;
+}
+
+.terminal {
+    background-color: black;
+    border: 2px solid #00ff00;
+    width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    box-shadow: 0 0 25px #00ff00;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.results-table {
+    overflow-x: auto;
+    margin-top: 30px;
+    border: 2px solid #00ff00;
+    padding: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #00ff00;
+    text-align: left;
+}
+
+th {
+    background-color: #003300;
+    min-width: 220px; 
+}
+
+td {
+    background-color: #000000;
+    min-width: 220px; 
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.loader {
+    border: 6px solid #004400;
+    border-top: 6px solid #00ff00;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Button container with flexbox to align buttons vertically */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 16px 32px; /* Adjust padding for better spacing */
+    margin-top: 20px;  /* Add margin for separation between buttons */
+    font-size: 18px;
+    cursor: pointer;
+    min-width: 200px;  /* Ensure buttons are wide enough */
+    text-align: center;
+    border-radius: 5px;  /* Slightly rounded corners */
+    box-shadow: 0 0 10px #00ff00; /* Add green glow */
+    transition: all 0.3s ease;  /* Smooth transition for hover effect */
+    font-family: 'Courier New', Courier, monospace; /* Match hacker font */
+}
+
+button:hover {
+    background-color: #00ff00;
+    color: black;  /* Invert colors on hover */
+    box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;  /* Enhance glow */
+    transform: scale(1.05);  /* Slight scale effect */
+}
+
+button:active {
+    transform: scale(0.98); /* Slightly shrink button on click */
+}
+
+button:focus {
+    outline: none; /* Remove focus outline */
+}
+
