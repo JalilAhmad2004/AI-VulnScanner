@@ -144,7 +144,7 @@ Detailed evaluation reports are available in the `model_results/` folder.
 ## 🎥 Video Demonstration
 
 Watch the project demo video on LinkedIn here:  
-[LinkedIn Video Demo](https://www.linkedin.com/posts/yourprofile_your-video-post-url)
+[LinkedIn Video Demo](https://www.linkedin.com/posts/jalil-ahmad-b0b0b4257_cybersecurity-machinelearning-ai-activity-7334645552078336001-4Xa0?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD8yTDsBVy8nzQlZvOxeT4nxTxOQzmCYd6Q)
 
 ---
 
