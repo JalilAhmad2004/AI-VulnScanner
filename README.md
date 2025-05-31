@@ -29,7 +29,6 @@ The system streamlines vulnerability management by providing actionable insights
 ```
 
 project\_code/
-├── pycache/                  # Python cache files
 ├── checkup\_database/         # Dataset and database files used for training/classification
 ├── model\_results/            # Saved model evaluation reports and outputs
 ├── models/                   # Trained ML and transformer model files
@@ -99,6 +98,9 @@ Detailed evaluation reports are available in the `model_results/` folder.
 ---
 
 ## 🧑‍💻 How It Works
+
+> **Note:** The trained model files are large (~300 MB) and are not included here.  
+> If you need the models, please contact me via email at **ahmadjaleel110@gmail.com**.
 
 * Enter target IP and start an OpenVAS scan.
 * Once the scan completes, view raw scan results.
