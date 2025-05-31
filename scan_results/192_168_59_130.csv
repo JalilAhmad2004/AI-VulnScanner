@@ -1,0 +1,261 @@
+cve_id,cvss_score,solution,description,access_vector,access_complexity,exploit
+cve-2008-5305,10.0,upgrade to version 4.2.4 or later.,"twiki, twiki version prior to 4.2.4. successful exploitation could allow execution of arbitrary script code or commands. this could let attackers steal cookie-based authentication credentials or compromise the affected application.",network,low,exploits/php/webapps/32645.txt
+cve-1999-0618,10.0,"disable the rexec service and use alternatives like ssh
+  instead.",null,network,low,null
+cve-2011-2523,9.8,"the repaired package can be downloaded from the referenced
+  vendor homepage. please validate the package with its signature.",the vsftpd 2.3.4 source package downloaded between 20110630 and 20110703 is affected. attackers can exploit this issue to execute arbitrary commands in the context of the application. successful attacks will compromise the affected application.,network,low,exploits/unix/remote/17491.rb
+cve-2012-1823,9.8,"php: update to version 5.3.13, 5.4.3 or later
+
+  - other products / applications: please contact the vendor for a solution",php versions prior to 5.3.13 and 5.4.x prior to 5.4.3. other products / applications might be affected by the tested cve-2012-1823 as well. exploiting this issue allows remote attackers to view the source code of files in the context of the server process. this may allow the attacker to obtain sensitive information and to run arbitrary php code on the affected computer. other attacks are also possible.,network,low,exploits/php/remote/18836.py
+cve-2012-2311,9.8,"php: update to version 5.3.13, 5.4.3 or later
+
+  - other products / applications: please contact the vendor for a solution",php versions prior to 5.3.13 and 5.4.x prior to 5.4.3. other products / applications might be affected by the tested cve-2012-1823 as well. exploiting this issue allows remote attackers to view the source code of files in the context of the server process. this may allow the attacker to obtain sensitive information and to run arbitrary php code on the affected computer. other attacks are also possible.,network,low,exploits/php/remote/18836.py
+cve-2012-2336,9.8,"php: update to version 5.3.13, 5.4.3 or later
+
+  - other products / applications: please contact the vendor for a solution",php versions prior to 5.3.13 and 5.4.x prior to 5.4.3. other products / applications might be affected by the tested cve-2012-1823 as well. exploiting this issue allows remote attackers to view the source code of files in the context of the server process. this may allow the attacker to obtain sensitive information and to run arbitrary php code on the affected computer. other attacks are also possible.,network,low,exploits/php/remote/18836.py
+cve-2012-2335,9.8,"php: update to version 5.3.13, 5.4.3 or later
+
+  - other products / applications: please contact the vendor for a solution",php versions prior to 5.3.13 and 5.4.x prior to 5.4.3. other products / applications might be affected by the tested cve-2012-1823 as well. exploiting this issue allows remote attackers to view the source code of files in the context of the server process. this may allow the attacker to obtain sensitive information and to run arbitrary php code on the affected computer. other attacks are also possible.,network,low,null
+cve-2020-1938,9.8,"update apache tomcat to version 7.0.100, 8.5.51, 9.0.31 or later. for other products
+  using tomcat please contact the vendor for more information on fixed versions.","apache tomcat versions prior 7.0.100, 8.5.51 or 9.0.31 when the ajp connector is enabled. other products like jboss or wildfly which are using tomcat might be affected as well.",network,low,exploits/multiple/webapps/49039.rb
+cve-2011-2523,9.8,"the repaired package can be downloaded from the referenced
+  vendor homepage. please validate the package with its signature.",the vsftpd 2.3.4 source package downloaded between 20110630 and 20110703 is affected. attackers can exploit this issue to execute arbitrary commands in the context of the application. successful attacks will compromise the affected application.,network,low,exploits/unix/remote/17491.rb
+cve-2004-2687,9.3,"vendor updates are available. please see the references for
+  more information.
+
+  for more information about distcc's security see the references.",distcc by default trusts its clients completely that in turn could allow a malicious client to execute arbitrary commands on the server.,network,medium,exploits/multiple/remote/9915.rb
+cve-2016-7144,8.1,"upgrade to unrealircd 3.2.10.7,
+  or 4.0.6, or later.",unrealircd before 3.2.10.7 and 4.x before 4.0.6. successful exploitation of this vulnerability will allows remote attackers to spoof certificate fingerprints and consequently log in as another user.,network,medium,null
+cve-2011-3556,7.5,"disable class-loading. please contact the vendor of the
+  affected system for additional guidance.","an unauthenticated, remote attacker could exploit the vulnerability by transmitting crafted packets to the affected software. when the packets are processed, the attacker could execute arbitrary code on the system with elevated privileges.",network,low,exploits/multiple/remote/17535.rb
+cve-1999-0501,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-1999-0502,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,exploits/multiple/remote/41694.rb
+cve-1999-0507,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-1999-0508,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-2001-1594,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2013-7404,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2014-9198,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2015-7261,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2016-8731,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2017-8218,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-9068,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-17771,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-2018-19063,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-19064,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-1999-0501,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-1999-0502,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,exploits/multiple/remote/41694.rb
+cve-1999-0507,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-1999-0508,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-2001-1594,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2013-7404,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2014-9198,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2015-7261,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2016-8731,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2017-8218,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-9068,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-17771,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,local,low,null
+cve-2018-19063,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2018-19064,7.5,change the password as soon as possible.,this issue may be exploited by a remote attacker to e.g. gain access to sensitive information or modify system configuration.,network,low,null
+cve-2014-0224,7.4,updates are available. please see the references for more information.,"openssl before 0.9.8za, 1.0.0 before 1.0.0m and 1.0.1 before 1.0.1h. successfully exploiting this issue may allow attackers to obtain sensitive information by conducting a man-in-the-middle attack. this may lead to other attacks.",network,medium,null
+cve-2009-4898,6.8,upgrade to twiki version 4.3.2 or later.,twiki version prior to 4.3.2 successful exploitation will allow attacker to gain administrative privileges on the target application and can cause csrf attack.,network,medium,null
+cve-2011-0411,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1430,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1431,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1432,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1506,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1575,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,null
+cve-2011-1926,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,high,null
+cve-2011-2165,6.8,"updates are available. please see the references for more
+  information.",the following vendors are known to be affected: ipswitch kerio postfix qmail-tls oracle sco group spamdyke isc an attacker can exploit this issue to execute arbitrary commands in the context of the user running the application. successful exploits can allow attackers to obtain email usernames and passwords.,network,medium,exploits/php/webapps/37440.txt
+cve-1999-0497,6.4,"if you do not want to share files, you should disable anonymous
+  logins.",based on the files accessible via this anonymous ftp login and the permissions of this account an attacker might be able to: - gain access to sensitive files - upload or delete files.,network,low,null
+cve-2018-20212,6.1,update to version 6.1.0 or later.,twiki version 6.0.2 and probably prior.,network,medium,null
+cve-2012-6708,6.1,update to version 1.9.0 or later.,jquery prior to version 1.9.0.,network,medium,exploits/hardware/webapps/49708.txt
+cve-2009-1339,6.0,upgrade to version 4.3.1 or later.,twiki version prior to 4.3.1 successful exploitation will allow attacker to gain administrative privileges on the target application and can cause csrf attack.,network,medium,null
+cve-2007-2447,6.0,"updates are available. please see the referenced vendor
+  advisory.",samba versions 3.0.0 through 3.0.25rc3. an attacker may leverage this issue to execute arbitrary shell commands on an affected system with the privileges of the application.,network,medium,exploits/unix/remote/16320.rb
+cve-2013-2566,5.9,"the configuration of this services should be changed so that it
+  does not accept the listed weak cipher suites anymore.
+
+  please see the references for more resources supporting you with this task.","all services providing an encrypted communication using weak ssl/tls cipher suites. this could allow remote attackers to obtain sensitive information or have other, unspecified impacts.",network,medium,null
+cve-2015-2808,5.9,"the configuration of this services should be changed so that it
+  does not accept the listed weak cipher suites anymore.
+
+  please see the references for more resources supporting you with this task.","all services providing an encrypted communication using weak ssl/tls cipher suites. this could allow remote attackers to obtain sensitive information or have other, unspecified impacts.",network,low,null
+cve-2015-4000,5.9,"the configuration of this services should be changed so that it
+  does not accept the listed weak cipher suites anymore.
+
+  please see the references for more resources supporting you with this task.","all services providing an encrypted communication using weak ssl/tls cipher suites. this could allow remote attackers to obtain sensitive information or have other, unspecified impacts.",network,medium,null
+cve-2016-0800,5.9,"it is recommended to disable the deprecated sslv2 and/or sslv3
+  protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",all services providing an encrypted communication using the sslv2 and/or sslv3 protocols. an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2014-3566,5.9,"it is recommended to disable the deprecated sslv2 and/or sslv3
+  protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",all services providing an encrypted communication using the sslv2 and/or sslv3 protocols. an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2016-0800,5.9,"it is recommended to disable the deprecated sslv2 and/or sslv3
+  protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",all services providing an encrypted communication using the sslv2 and/or sslv3 protocols. an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2014-3566,5.9,"it is recommended to disable the deprecated sslv2 and/or sslv3
+  protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",all services providing an encrypted communication using the sslv2 and/or sslv3 protocols. an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2003-1567,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2004-2320,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2004-2763,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2005-3398,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2006-4683,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,low,null
+cve-2007-3008,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2008-7253,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2009-2823,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2010-0386,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2012-2223,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,medium,null
+cve-2014-7883,5.8,"disable the trace and track methods in your web server
+  configuration.
+
+  please see the manual of your web server or the references for more information.",web servers with enabled trace and/or track methods. an attacker may use this flaw to trick your legitimate web users to give him their credentials.,network,low,exploits/windows/webapps/35982.txt
+cve-2008-0149,5.3,delete the listed files or restrict access to them.,"all systems exposing a file containing the output of the phpinfo() php function. this vt is also reporting if an affected endpoint for the following products have been identified: - cve-2008-0149: tutos - cve-2023-49282, cve-2023-49283: microsoft graph php sdk - cve-2024-10486: google for woocommerce plugin for wordpress some of the information that can be gathered from this file includes: the username of the user running the php process, if it is a sudo user, the ip address of the host, the web server version, the system version (unix, linux, windows, ...), and the root directory of the web server.",network,low,exploits/php/webapps/4861.txt
+cve-2023-49282,5.3,delete the listed files or restrict access to them.,"all systems exposing a file containing the output of the phpinfo() php function. this vt is also reporting if an affected endpoint for the following products have been identified: - cve-2008-0149: tutos - cve-2023-49282, cve-2023-49283: microsoft graph php sdk - cve-2024-10486: google for woocommerce plugin for wordpress some of the information that can be gathered from this file includes: the username of the user running the php process, if it is a sudo user, the ip address of the host, the web server version, the system version (unix, linux, windows, ...), and the root directory of the web server.",network,medium,null
+cve-2023-49283,5.3,delete the listed files or restrict access to them.,"all systems exposing a file containing the output of the phpinfo() php function. this vt is also reporting if an affected endpoint for the following products have been identified: - cve-2008-0149: tutos - cve-2023-49282, cve-2023-49283: microsoft graph php sdk - cve-2024-10486: google for woocommerce plugin for wordpress some of the information that can be gathered from this file includes: the username of the user running the php process, if it is a sudo user, the ip address of the host, the web server version, the system version (unix, linux, windows, ...), and the root directory of the web server.",network,medium,null
+cve-2024-10486,5.3,delete the listed files or restrict access to them.,"all systems exposing a file containing the output of the phpinfo() php function. this vt is also reporting if an affected endpoint for the following products have been identified: - cve-2008-0149: tutos - cve-2023-49282, cve-2023-49283: microsoft graph php sdk - cve-2024-10486: google for woocommerce plugin for wordpress some of the information that can be gathered from this file includes: the username of the user running the php process, if it is a sudo user, the ip address of the host, the web server version, the system version (unix, linux, windows, ...), and the root directory of the web server.",network,medium,null
+cve-1999-0678,5.0,"use access restrictions for the /doc directory.
+  if you use apache you might use this in your access.conf:
+
+  <directory /usr/doc>
+  allowoverride none
+  order deny, allow
+  deny from all
+  allow from localhost
+  </directory>",null,network,low,exploits/linux/remote/19253.txt
+cve-2011-1473,5.0,"users should contact their vendors for specific patch information.
+
+  a general solution is to remove/disable renegotiation capabilities altogether from/in the affected
+  ssl/tls service.",every ssl/tls service which does not properly restrict client-initiated renegotiation. the flaw might make it easier for remote attackers to cause a dos (cpu consumption) by performing many renegotiations within a single connection.,network,low,null
+cve-2011-5094,5.0,"users should contact their vendors for specific patch information.
+
+  a general solution is to remove/disable renegotiation capabilities altogether from/in the affected
+  ssl/tls service.",every ssl/tls service which does not properly restrict client-initiated renegotiation. the flaw might make it easier for remote attackers to cause a dos (cpu consumption) by performing many renegotiations within a single connection.,network,medium,null
+cve-2011-1473,5.0,"users should contact their vendors for specific patch information.
+
+  a general solution is to remove/disable renegotiation capabilities altogether from/in the affected
+  ssl/tls service.",every ssl/tls service which does not properly restrict client-initiated renegotiation. the flaw might make it easier for remote attackers to cause a dos (cpu consumption) by performing many renegotiations within a single connection.,network,low,null
+cve-2011-5094,5.0,"users should contact their vendors for specific patch information.
+
+  a general solution is to remove/disable renegotiation capabilities altogether from/in the affected
+  ssl/tls service.",every ssl/tls service which does not properly restrict client-initiated renegotiation. the flaw might make it easier for remote attackers to cause a dos (cpu consumption) by performing many renegotiations within a single connection.,network,medium,null
+cve-2005-0283,5.0,"no known solution was made available for at least one year since the disclosure
+  of this vulnerability. likely none will be provided anymore. general solution options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the product by another one.",null,network,low,exploits/php/webapps/737.txt
+cve-2010-4480,4.3,"no known solution was made available for at least one year since the disclosure
+  of this vulnerability. likely none will be provided anymore. general solution options are to upgrade to a newer
+  release, disable respective features, remove the product or replace the product by another one.",phpmyadmin version 3.3.8.1 and prior. successful exploitation will allow attackers to inject arbitrary html code within the error page and conduct phishing attacks.,network,medium,exploits/php/webapps/15699.txt
+cve-2011-4969,4.3,update to version 1.6.3 or later.,jquery prior to version 1.6.3.,network,medium,null
+cve-2012-0053,4.3,update to apache http server version 2.2.22 or later.,apache http server versions 2.2.0 through 2.2.21. successful exploitation will allow attackers to obtain sensitive information that may aid in further attacks.,network,medium,exploits/multiple/remote/18442.html
+cve-2011-3389,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2015-0204,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2023-41928,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2024-41270,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2025-3200,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2015-0204,4.3,"'- remove support for 'rsa_export' cipher suites from the
+  service. please see the references for more resources supporting you with this task.
+
+  - if the service is using openssl: update to version 0.9.8zd, 1.0.0p, 1.0.1k or later.","'- hosts accepting 'rsa_export' cipher suites. - openssl versions prior to 0.9.8zd, 1.0.0 prior to 1.0.0p and 1.0.1 prior to 1.0.1k. successful exploitation will allow remote attacker to downgrade the security of a session to use 'rsa_export' cipher suites, which are significantly weaker than non-export cipher suites. this may allow a man-in-the-middle attacker to more easily break the encryption and monitor or tamper with the encrypted stream.",network,medium,null
+cve-2011-3389,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2015-0204,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2023-41928,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2024-41270,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2025-3200,4.3,"it is recommended to disable the deprecated tlsv1.0 and/or
+  tlsv1.1 protocols in favor of the tlsv1.2+ protocols.
+
+  please see the references for more resources supporting you with this task.",'- all services providing an encrypted communication using the tlsv1.0 and/or tlsv1.1 protocols - cve-2023-41928: kiloview p1 4g and p2 4g video encoder - cve-2024-41270: gorush v1.18.4 - cve-2025-3200: multiple products from wiesemann & theis an attacker might be able to use the known cryptographic flaws to eavesdrop the connection between clients and the service to get access to sensitive data transferred within the secured connection. furthermore newly uncovered vulnerabilities in this protocols won't receive security updates anymore.,network,medium,null
+cve-2015-4000,3.7,"'- remove support for 'dhe_export' cipher
+  suites from the service. please see the references for more resources supporting you with this
+  task.
+
+  - if the service is using openssl: update to version 1.0.1n, 1.0.2b or later.","'- hosts accepting 'dhe_export' cipher suites. - openssl versions prior to 1.0.1n and 1.0.2 prior to 1.0.2b. successful exploitation will allow a man-in-the-middle attacker to downgrade the security of a tls session to 512-bit export-grade cryptography, which is significantly weaker, allowing the attacker to more easily break the encryption and monitor or tamper with the encrypted stream.",network,medium,null
+cve-2014-3566,3.4,"possible mitigations are:
+
+  - disable sslv3
+
+  - disable cipher suites supporting cbc cipher modes
+
+  - enable tls_fallback_scsv if the service is providing tlsv1.0+",successful exploitation will allow a man-in-the-middle attackers gain access to the plain text data stream.,network,medium,null
+cve-2014-3566,3.4,"possible mitigations are:
+
+  - disable sslv3
+
+  - disable cipher suites supporting cbc cipher modes
+
+  - enable tls_fallback_scsv if the service is providing tlsv1.0+",successful exploitation will allow a man-in-the-middle attackers gain access to the plain text data stream.,network,medium,null
+cve-1999-0524,2.1,"various mitigations are possible:
+
+  - disable the support for icmp timestamp on the remote host completely
+
+  - protect the remote host by a firewall, and block icmp packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)",this information could theoretically be used to exploit weak time-based random number generators in other services.,local,low,null
