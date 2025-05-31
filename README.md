@@ -128,9 +128,9 @@ Detailed evaluation reports are available in the `model_results/` folder.
 
 ## 👥 Team Members
 
-* Muhammad Umer Farooq (I221661)
-* Jalil Ahmad (I221635)
-* Aleena Fatima (I222353)
+* [@UmerFarooq](https://github.com/0ri4x) (I221661)  
+* [@JalilAhmad](https://github.com/JalilAhmad2004) (I221635)  
+* [@AleenaFatima](https://github.com/aleenafatimaqureshi) (I222353)
 
 ---
 
