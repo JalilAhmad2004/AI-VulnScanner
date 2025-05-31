@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenVAS Scan Results</title>
+    <link rel="stylesheet" href="/static/results.css">
+</head>
+<body>
+    <!-- Matrix background effect -->
+    <div class="matrix-wrapper">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <div class="terminal-overlay">
+        <div class="terminal">
+            <h1>🔍 OpenVAS Scan Results for IP: {{ ip }}</h1>
+
+            <!-- Display the previous scan data in a table -->
+            <div id="resultsSection" class="centered">
+                <div class="results-table">
+                    {{ data_html|safe }}
+                </div>
+            </div>
+
+            <!-- Button container to center both buttons -->
+            <div class="button-container centered">
+                <div id="generateClassificationBtnWrapper" class="centered">
+                    <button onclick="generateClassification()">Generate Severity Classification</button>
+                </div>
+
+                <div id="showClassificationBtnWrapper" class="centered" style="display:none;">
+                    <button onclick="window.location.href='/show_classification_report/{{ ip }}'">Show Classification Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix background effect for hacker theme
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        const binary = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px Courier";
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+
+        // Function to generate classification
+        function generateClassification() {
+            fetch(`/generate_classification/{{ ip }}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        document.getElementById("showClassificationBtnWrapper").style.display = "block";
+                    } else if (data.error) {
+                        alert(data.error);
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
+

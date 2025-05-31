@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenVAS Scanner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="matrix-wrapper">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <div class="terminal-overlay">
+        <div class="terminal">
+            <h1>🔍 OpenVAS Terminal Scanner</h1>
+            <form id="scanForm">
+                <label for="ip">Target IP:</label><br>
+                <input type="text" name="ip" id="ip" required placeholder="e.g. 192.168.1.1">
+                <button type="submit">Start Scan</button>
+            </form>
+
+            <div id="statusSection" style="display: none;" class="centered">
+                <div id="loader" class="loader"></div>
+                <div id="statusMsg">Waiting...</div>
+                <div class="control-buttons">
+                    <button id="pauseBtn" style="display: none;">⏸️ Pause</button>
+                    <button id="resumeBtn" style="display: none;">▶️ Resume</button>
+                </div>
+            </div>
+
+            <!-- Message for previous scan -->
+            <div id="previousScanMsg" style="display: none;">
+                <p id="previousScanMessage"></p>
+                <button id="showPreviousScanBtn">Show Previous Scan</button>
+                <button id="startNewScanBtn">Start New Scan</button>
+            </div>
+
+            <!-- New button to show scan results -->
+            <div id="showScanResultsBtnWrapper" style="display: none;">
+                <button id="showScanResultsBtn">Show Scan Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIP = "";
+
+        document.getElementById("scanForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const ip = document.getElementById("ip").value;
+            currentIP = ip;
+            document.getElementById("statusSection").style.display = "flex";
+            document.getElementById("statusMsg").textContent = "Starting scan...";
+            document.getElementById("loader").style.display = "inline-block";
+
+            fetch("/start_scan", {
+                method: "POST",
+                body: new URLSearchParams({ ip: ip })
+            }).then(res => res.json())
+              .then(data => {
+                if (data.error) {
+                    document.getElementById("statusMsg").textContent = "❌ " + data.error;
+                    document.getElementById("loader").style.display = "none";
+                } else if (data.previous_scan_exists) {
+                    document.getElementById("previousScanMsg").style.display = "block";
+                    document.getElementById("previousScanMessage").textContent = `A previous scan for ${ip} was found. Do you want to see the previous results or start a new scan?`;
+                } else {
+                    pollStatus(ip);
+                }
+            });
+        });
+
+        // Show previous scan results
+        document.getElementById("showPreviousScanBtn").addEventListener("click", () => {
+            window.location.href = `/show_previous_scan/${currentIP}`;
+        });
+
+        // Start a new scan
+        document.getElementById("startNewScanBtn").addEventListener("click", () => {
+            document.getElementById("previousScanMsg").style.display = "none";
+            document.getElementById("statusSection").style.display = "flex";
+            document.getElementById("statusMsg").textContent = "Starting new scan...";
+            document.getElementById("loader").style.display = "inline-block";
+            fetch("/start_new_scan", {
+                method: "POST",
+                body: new URLSearchParams({ ip: currentIP })
+            }).then(res => res.json())
+              .then(data => {
+                if (data.error) {
+                    document.getElementById("statusMsg").textContent = "❌ " + data.error;
+                    document.getElementById("loader").style.display = "none";
+                } else {
+                    pollStatus(currentIP);
+                }
+            });
+        });
+
+        function pollStatus(ip) {
+            const interval = setInterval(() => {
+                fetch(`/scan_status/${ip}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.status === "Done") {
+                            document.getElementById("statusMsg").textContent = "✅ Scan complete!";
+                            document.getElementById("loader").style.display = "none";
+                            document.getElementById("pauseBtn").style.display = "none";
+                            document.getElementById("resumeBtn").style.display = "none";
+                            document.getElementById("showScanResultsBtnWrapper").style.display = "block"; // Show the button
+                            clearInterval(interval);
+                        } else if (data.status === "Running") {
+                            document.getElementById("statusMsg").textContent = `⏳ Scan status: ${data.status} (${data.progress}%)`;
+                            document.getElementById("pauseBtn").style.display = "inline-block";
+                            document.getElementById("resumeBtn").style.display = "none";
+                        } else if (data.status === "Paused" || data.status === "Stopped") {
+                            document.getElementById("statusMsg").textContent = "⏸️ Scan paused.";
+                            document.getElementById("pauseBtn").style.display = "none";
+                            document.getElementById("resumeBtn").style.display = "inline-block";
+                        } else if (["Queued", "Requested", "Scheduled"].includes(data.status)) {
+                            document.getElementById("statusMsg").textContent = `⏳ Scan status: ${data.status}`;
+                        } else {
+                            document.getElementById("statusMsg").textContent = "❌ Unexpected status: " + data.status;
+                            document.getElementById("loader").style.display = "none";
+                            document.getElementById("pauseBtn").style.display = "none";
+                            document.getElementById("resumeBtn").style.display = "none";
+                            clearInterval(interval);
+                        }
+                    })
+                    .catch(() => {
+                        document.getElementById("statusMsg").textContent = "❌ Failed to check status.";
+                        document.getElementById("loader").style.display = "none";
+                        clearInterval(interval);
+                    });
+            }, 3000);
+        }
+
+        document.getElementById("pauseBtn").addEventListener("click", () => {
+            document.getElementById("statusMsg").textContent = "⏳ Sending stop request...";
+            
+            fetch(`/pause_scan/${currentIP}`, { method: "POST" })
+                .then(res => res.json())
+                .then(data => {
+                    setTimeout(() => {
+                        fetch(`/scan_status/${currentIP}`)
+                            .then(res => res.json())
+                            .then(statusData => {
+                                if (statusData.status === "Stopped" || statusData.status === "Paused") {
+                                    document.getElementById("statusMsg").textContent = "⏸️ Scan paused.";
+                                    document.getElementById("pauseBtn").style.display = "none";
+                                    document.getElementById("resumeBtn").style.display = "inline-block";
+                                } else {
+                                    document.getElementById("statusMsg").textContent = "❌ Failed to pause scan. Status: " + statusData.status;
+                                    document.getElementById("loader").style.display = "none";
+                                }
+                            })
+                            .catch(err => {
+                                document.getElementById("statusMsg").textContent = "❌ Error checking pause status.";
+                                document.getElementById("loader").style.display = "none";
+                            });
+                    }, 1000); // Wait 3 seconds before checking pause status
+                })
+                .catch(error => {
+                    document.getElementById("statusMsg").textContent = `❌ ${error.message}`;
+                    document.getElementById("loader").style.display = "none";
+                });
+        });
+
+        document.getElementById("resumeBtn").addEventListener("click", () => {
+            document.getElementById("statusMsg").textContent = "▶️ Resuming scan...";
+            fetch(`/resume_scan/${currentIP}`, { method: "POST" })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("statusMsg").textContent = "❌ " + data.error;
+                        document.getElementById("loader").style.display = "none";
+                    } else {
+                        document.getElementById("statusMsg").textContent = "⏳ Resuming...";
+                    }
+                });
+        });
+
+        // Matrix background effect
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        const binary = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px Courier";
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+    </script>
+</body>
+</html>
+

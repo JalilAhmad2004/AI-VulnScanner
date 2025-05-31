@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remediation Steps</title>
+    <link rel="stylesheet" href="/static/remediations.css">
+</head>
+<body>
+    <div class="matrix-wrapper">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <div class="terminal-overlay">
+        <div class="terminal">
+            <h1>🔍 Remediation Steps for IP: {{ ip }}</h1>
+
+            <div id="remediationSection" class="centered">
+                <div class="results-table">
+                    <!-- Table to display the selected columns -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CVE ID</th>
+                                <th>CVSS Score</th>
+                                <th>Solution</th>
+                                <th>Remediation Steps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loop through the rows and display only the required columns -->
+                            {% for row in data %}
+                            <tr>
+                                <td>{{ row['cve_id'] }}</td>
+                                <td>{{ row['cvss_score'] }}</td>
+                                <td>{{ row['solution'] }}</td>
+                                <td id="remediation-{{ loop.index }}">{{ row['remediation_steps'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="button-container centered">
+                <button onclick="window.location.href='/show_classification_report/{{ ip }}'">Back to Classification Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix background effect for hacker theme
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        const binary = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px Courier";
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+
+        // Function to generate remediation report
+        function generateRemediation() {
+            fetch(`/generate_remediation_report/{{ ip }}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        // Display JavaScript prompt with the success message
+                        alert(data.message);
+
+                        // Enable "Show Remediation Report" button after report generation
+                        document.getElementById("showRemediationBtn").style.display = "inline-block";
+                    } else if (data.error) {
+                        alert(data.error);
+                    }
+                })
+                .catch(err => {
+                    alert("Error while generating remediation report.");
+                });
+        }
+
+        // Function to format remediation steps by applying parenthesis to numbers
+        function formatRemediationSteps() {
+            const remediationCells = document.querySelectorAll('td[id^="remediation-"]');
+
+            remediationCells.forEach(cell => {
+                let text = cell.innerHTML;
+                // Replace any single digit number with the format (number)
+                text = text.replace(/(\b\d{1}\b)/g, '($1)-');
+                cell.innerHTML = text; // Update the cell content
+            });
+        }
+
+        // Run the formatRemediationSteps function when the page loads
+        window.onload = function() {
+            formatRemediationSteps();  // Apply the format to all remediation steps
+        }
+    </script>
+</body>
+</html>
+

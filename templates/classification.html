@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification Report</title>
+    <link rel="stylesheet" href="/static/classification.css">
+</head>
+<body>
+    <div class="matrix-wrapper">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <div class="terminal-overlay">
+        <div class="terminal">
+            <h1>🔍 Classification Report for IP: {{ ip }}</h1>
+
+            <div id="resultsSection" class="centered">
+                <div class="results-table">
+                    {{ data_html|safe }}
+                </div>
+            </div>
+
+            <!-- Button container -->
+            <div class="button-container centered">
+                <!-- Generate Remediation Report Button -->
+                <button onclick="generateRemediation()">Generate Remediation Report</button>
+
+                <!-- Show Remediation Report Button, always visible now -->
+                <button id="showRemediationBtn" onclick="window.location.href='/show_remediation_report/{{ ip }}'">Show Remediation Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix background effect
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        const binary = "01";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px Courier";
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+        window.addEventListener("resize", () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+
+        // Function to generate remediation report
+        function generateRemediation() {
+            fetch(`/generate_remediation_report/{{ ip }}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        // Display JavaScript prompt with the success message
+                        alert(data.message);
+
+                        // Enable "Show Remediation Report" button after report generation
+                        document.getElementById("showRemediationBtn").style.display = "inline-block";
+                    } else if (data.error) {
+                        alert(data.error);
+                    }
+                })
+                .catch(err => {
+                    alert("Error while generating remediation report.");
+                });
+        }
+    </script>
+</body>
+</html>
+
