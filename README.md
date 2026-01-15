@@ -32,7 +32,7 @@ project\_code/
 ├── checkup\_database/         # Dataset and database files used for training/classification
 ├── model\_results/            # Saved model evaluation reports and outputs
 ├── models/                   # Trained ML and transformer model files
-├── scan\_results/             # Raw and parsed OpenVAS scan results (CSV/JSON)
+├── scan\_results/             # Raw and parsed OpenVAS results (CSV/JSON)
 ├── static/                   # Frontend static files (CSS, JS, images)
 ├── templates/                # Flask HTML templates for web UI
 ├── app.py                    # Main Flask application
